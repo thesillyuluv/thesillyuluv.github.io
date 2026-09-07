@@ -12,6 +12,6 @@
 		"dev.kmmiio99o.lib": { "version": ">=1" }
 	},
 	"dist": {
-		"script": "index.js"
+		"script": "./js/index.js"
 	}
 }
