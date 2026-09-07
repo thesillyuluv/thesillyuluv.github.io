@@ -1,0 +1,17 @@
+{
+	"format": 1,
+	"id": "dev.kmmiio99o.chatbubbles",
+	"name": "Chat Bubbles",
+	"description": "Adds customizable chat bubbles to the chat, similar to Flowercord.",
+	"author": "kmmiio99o",
+	"icon": "ChatIcon",
+	"version": "1.1.0",
+	"dependencies": {
+		"revenge.api": { "version": ">=1" },
+		"discord": { "version": "*" },
+		"dev.kmmiio99o.lib": { "version": ">=1" }
+	},
+	"dist": {
+		"script": "index.js"
+	}
+}
