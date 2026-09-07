@@ -1,4 +1,5 @@
 import { getSettings } from './state'
+import { findByProps } from '@vendetta/metro'
 
 let showCustomColorPicker: any
 
@@ -22,51 +23,26 @@ let showCustomColorPicker: any
 // launcher and forces it to initialize; `withName` then confirms the real exports. Only
 // success is cached.
 function resolveShowCustomColorPicker(): any {
-	if (typeof showCustomColorPicker === 'function') return showCustomColorPicker
+  if (typeof showCustomColorPicker === 'function') return showCustomColorPicker
 
-	const finders = revenge.modules.finders
-	const filters = finders.filters
+  try {
+    // Try to find the color picker in Vendetta's metro
+    const colorPicker = findByProps('showCustomColorPickerActionSheet')
+    if (typeof colorPicker?.showCustomColorPickerActionSheet === 'function') {
+      showCustomColorPicker = colorPicker.showCustomColorPickerActionSheet
+      return showCustomColorPicker
+    }
+  } catch {
+    // leave undefined → openNativeColorPicker no-ops
+  }
 
-	// Locate ActionSheetActionCreators by its stable exports — its ID drifts on every build,
-	// the export names don't. If it's somehow not initialized yet, fall back to a dynamic
-	// dependency (`null`) and let `withName` disambiguate below.
-	const actionSheetCreatorId = finders.lookupModule(
-		filters.withProps('openLazy', 'hideActionSheet'),
-	)?.[1]
-	const actionSheetCreatorDep: number | null =
-		typeof actionSheetCreatorId === 'number' ? actionSheetCreatorId : null
-
-	let exports: any
-	try {
-		const found = finders.lookupModule(
-			filters
-				.withName('showCustomColorPickerActionSheet')
-				.and(
-					filters.withDependencies(
-						filters.withDependencies.loose([
-							actionSheetCreatorDep,
-							filters.withDependencies.relative(1),
-						]),
-					),
-				),
-			{ initialize: true },
-		)
-		exports = found?.[0]
-	} catch {
-		// leave undefined → openNativeColorPicker no-ops
-	}
-
-	if (typeof exports === 'function') {
-		showCustomColorPicker = exports
-		return exports
-	}
-	return undefined
+  return undefined
 }
 
 // The picker's `onSelect` hands back an int; format it for display/RN styles.
 export function colorIntToHex(color: number): string {
-	const value = (color & 0xffffff) >>> 0
-	return `#${value.toString(16).padStart(6, '0')}`
+  const value = (color & 0xffffff) >>> 0
+  return `#${value.toString(16).padStart(6, '0')}`
 }
 
 /**
@@ -79,13 +55,13 @@ export function colorIntToHex(color: number): string {
  * force it opaque on the way out.
  */
 export function openNativeColorPicker(onSelect: (color: number) => void): void {
-	const show = resolveShowCustomColorPicker()
-	if (typeof show !== 'function') return
-	const { bubbleColor } = getSettings()
-	show({
-		color: typeof bubbleColor === 'number' ? bubbleColor & 0xffffff : 0x000000,
-		onSelect: (color: number) => {
-			if (typeof color === 'number') onSelect((color & 0xffffff) | 0xff000000)
-		},
-	})
+  const show = resolveShowCustomColorPicker()
+  if (typeof show !== 'function') return
+  const { bubbleColor } = getSettings()
+  show({
+    color: typeof bubbleColor === 'number' ? bubbleColor & 0xffffff : 0x000000,
+    onSelect: (color: number) => {
+      if (typeof color === 'number') onSelect((color & 0xffffff) | 0xff000000)
+    },
+  })
 }

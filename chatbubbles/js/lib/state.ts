@@ -1,21 +1,24 @@
 import { DEFAULTS } from '../defaults'
-import type { JsonStorage } from '@revenge-mod/json-storage'
+import { storage } from '@vendetta/plugin'
 import type { ChatBubblesStorage } from '../types'
 
-type RevengeJsonStorageApi<S extends object> = JsonStorage<S>
+let localSettings: ChatBubblesStorage | undefined
 
-let storage: RevengeJsonStorageApi<ChatBubblesStorage> | undefined
-
-export function setStorage(handle: RevengeJsonStorageApi<ChatBubblesStorage>) {
-	storage = handle
-}
-
-export function getStorage() {
-	return storage
+export function initStorage() {
+  localSettings = { ...DEFAULTS, ...storage }
 }
 
 export function getSettings(): ChatBubblesStorage {
-	return { ...DEFAULTS, ...(storage?.cache ?? {}) }
+  return localSettings ?? DEFAULTS
+}
+
+export function setSetting<K extends keyof ChatBubblesStorage>(
+  key: K,
+  value: ChatBubblesStorage[K]
+) {
+  if (!localSettings) return
+  localSettings[key] = value
+  storage[key] = value
 }
 
 export { DEFAULTS }

@@ -1,29 +1,34 @@
+import { findByProps } from '@vendetta/metro'
+
 const PLUGIN_ID = 'dev.kmmiio99o.chatbubbles'
 
 function log(module: string, action: string, found: boolean) {
-	;(globalThis as any).__kmmiio?.logUsage?.(PLUGIN_ID, module, action, found)
+  ;(globalThis as any).__kmmiio?.logUsage?.(PLUGIN_ID, module, action, found)
 }
 
 export function isNativeAvailable(): boolean {
-	try {
-		return typeof revenge?.modules?.native?.callNativeMethod === 'function'
-	} catch {
-		return false
-	}
+  try {
+    const native = findByProps('callNativeMethod')
+    return typeof native?.callNativeMethod === 'function'
+  } catch {
+    return false
+  }
 }
 
 export function hookBubbles() {
-	if (!isNativeAvailable()) return Promise.resolve()
-	const result = revenge.modules.native.callNativeMethod('bubbles.hook', [])
-	log('native', 'bubbles.hook', true)
-	return result
+  if (!isNativeAvailable()) return Promise.resolve()
+  const native = findByProps('callNativeMethod')
+  const result = native.callNativeMethod('bubbles.hook', [])
+  log('native', 'bubbles.hook', true)
+  return result
 }
 
 export function unhookBubbles() {
-	if (!isNativeAvailable()) return Promise.resolve()
-	const result = revenge.modules.native.callNativeMethod('bubbles.unhook', [])
-	log('native', 'bubbles.unhook', true)
-	return result
+  if (!isNativeAvailable()) return Promise.resolve()
+  const native = findByProps('callNativeMethod')
+  const result = native.callNativeMethod('bubbles.unhook', [])
+  log('native', 'bubbles.unhook', true)
+  return result
 }
 
 /**
@@ -39,16 +44,17 @@ export function unhookBubbles() {
  * native side's `.toInt()` would saturate and corrupt the color.
  */
 export function configureBubbles(
-	avatarRadius?: number,
-	bubbleRadius?: number,
-	bubbleColor?: number | null,
+  avatarRadius?: number,
+  bubbleRadius?: number,
+  bubbleColor?: number | null,
 ) {
-	if (!isNativeAvailable()) return Promise.resolve()
-	const result = revenge.modules.native.callNativeMethod('bubbles.configure', [
-		avatarRadius,
-		bubbleRadius,
-		bubbleColor == null ? null : bubbleColor.toString(),
-	])
-	log('native', 'bubbles.configure', true)
-	return result
+  if (!isNativeAvailable()) return Promise.resolve()
+  const native = findByProps('callNativeMethod')
+  const result = native.callNativeMethod('bubbles.configure', [
+    avatarRadius,
+    bubbleRadius,
+    bubbleColor == null ? null : bubbleColor.toString(),
+  ])
+  log('native', 'bubbles.configure', true)
+  return result
 }
