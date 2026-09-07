@@ -12,6 +12,6 @@
 		"dev.kmmiio99o.lib": { "version": ">=1" }
 	},
 	"dist": {
-		"script": "https://thesillyuluv.github.io/chatbubbles/js/index.ts"
+		"script": "index.js"
 	}
 }
