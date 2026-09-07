@@ -7,7 +7,7 @@
             "id": "1278723517436788897"
         }
     ],
-    "main": "js/index.ts",
+    "main": "dist/index.js",
     "vendetta": {
         "icon": "ic_chat_bubble_32px"
     }

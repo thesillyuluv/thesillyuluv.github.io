@@ -1,0 +1,14 @@
+{
+  "name": "chatbubbles",
+  "version": "1.0.0",
+  "description": "Discord plugin for customizing chat bubbles",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.70.0"
+  }
+}
