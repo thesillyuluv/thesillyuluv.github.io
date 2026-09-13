@@ -25,13 +25,16 @@ html {
     interpolate-size: allow-keywords;
     scrollbar-gutter: stable;
     color: #c6c6c6;
-    text-shadow: rgba(255,255,255,0.25) 0px 0px 30px;
+    text-shadow: #000000 0px 0px 8px;
 }
 body{
-    width:100%;
-    max-height:100vh;
-    margin:0;
-    background-color:var(--primary);
+    width: 100%;
+    max-height: 100vh;
+    margin: 0;
+    background-image: url("https://silvie.nekoweb.org/background.jpg");
+	background-position: center;
+    background-attachment: fixed;
+    background-size: 350vh;
 }
 
 p{text-wrap:pretty}
@@ -52,24 +55,28 @@ a:visited {
 
 main{
 	margin:25px;
-	width:95%;
-	margin-left:2.5%;
-	margin-right:2.5%;
-	background-color:var(--dark);
-	padding:8px;
-	border-radius:20px;
-	border:solid var(--darker) 6px;
+	width:90%;
+	margin-left:5%;
+	margin-right:5%;
+	background-color:#00000068;
+	padding:24px;
+	border-radius:45px;
+	border:solid var(#00000013) 6px;
 	height:fit-content;
-	-webkit-box-shadow:0px 0px 25px 8px rgba(166,5,88,0.9);
-	-moz-box-shadow: 0px 0px 25px 8px rgba(166,5,88,0.9);
-	box-shadow: 0px 0px 25px 8px rgba(0,5,88,0.9);
+	backdrop-filter: blur(10px);
 }
-nav {
-	margin:0;
-	padding:.6em;
-	width:100%;
+
+button{
+	background-color:#00000068;
+	border-radius:10px;
 	border:0;
-	border-bottom:solid var(--darker) 6px;
+	color:#FFF;
+	font-size:20px;
+	padding:8px;
+	font-family: 'ABeeZee';
+	cursor:pointer;
+	box-shadow: #c6c6c668 0px 0px 15px;
+	text-shadow: #ffffff68 0px 0px 8px;
 }
 iframe {
     margin:auto;
@@ -77,4 +84,15 @@ iframe {
 }
 video{
 	width:100%;
+}
+
+
+@media (max-width: 700px) {
+	main {
+	margin:25px!important;
+	width:95%!important;
+	margin-left:2.5%!important;
+	margin-right:2.5%!important;
+	background-color:#00000068;
+	}
 }
