@@ -1,0 +1,42 @@
+09-20-2026 11:20:46PM [I] Revenge Manager v1.3.0
+09-20-2026 11:20:46PM [I] Built from commit 7c78e55 on main (Changes Present)
+09-20-2026 11:20:46PM [I] 
+09-20-2026 11:20:46PM [I] Running Android 14, API level 34
+09-20-2026 11:20:46PM [I] Supported ABIs: arm64-v8a, armeabi-v7a, armeabi
+09-20-2026 11:20:46PM [I] Device: Xiaomi - 23043RP34I (pipa)
+09-20-2026 11:20:46PM [I] SOC: QTI SM8250
+09-20-2026 11:20:46PM [I] 
+09-20-2026 11:20:46PM [I] Adding Revenge to Discord v345.9 - Stable
+09-20-2026 11:20:46PM [I] 
+09-20-2026 11:20:46PM [I] 
+09-20-2026 11:20:46PM [I] Checking if base-345009.apk is cached
+09-20-2026 11:20:46PM [I] Checking if base-345009.apk isn't empty
+09-20-2026 11:20:46PM [I] base-345009.apk is cached
+09-20-2026 11:20:46PM [I] Moving base-345009.apk to working directory
+09-20-2026 11:20:47PM [I] Checking if config.arm64_v8a-345009.apk is cached
+09-20-2026 11:20:47PM [I] Checking if config.arm64_v8a-345009.apk isn't empty
+09-20-2026 11:20:47PM [I] config.arm64_v8a-345009.apk is cached
+09-20-2026 11:20:47PM [I] Moving config.arm64_v8a-345009.apk to working directory
+09-20-2026 11:20:48PM [I] Checking if config.en-345009.apk is cached
+09-20-2026 11:20:48PM [I] Checking if config.en-345009.apk isn't empty
+09-20-2026 11:20:48PM [I] config.en-345009.apk is cached
+09-20-2026 11:20:48PM [I] Moving config.en-345009.apk to working directory
+09-20-2026 11:20:49PM [I] Checking if config.xxhdpi-345009.apk is cached
+09-20-2026 11:20:49PM [I] Checking if config.xxhdpi-345009.apk isn't empty
+09-20-2026 11:20:49PM [I] config.xxhdpi-345009.apk is cached
+09-20-2026 11:20:49PM [I] Moving config.xxhdpi-345009.apk to working directory
+09-20-2026 11:20:50PM [I] Checking if xposed.apk is cached
+09-20-2026 11:20:50PM [I] xposed.apk was not properly cached, downloading now
+09-20-2026 11:20:50PM [I] Downloading xposed.apk from https://github.com/revenge-mod/revenge-xposed/releases/latest/download/app-release.apk
+09-20-2026 11:21:06PM [E] Current mirror DEFAULT failed: Download failed: Connect timeout has expired [url=https://release-assets.githubusercontent.com/github-production-release-asset/856946744/49c5c9f3-5de4-4a6b-a6c2-4fc0e60fbcb6?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-09-20T18%3A35%3A20Z&rscd=attachment%3B+filename%3Dapp-release.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-09-20T17%3A34%3A38Z&ske=2026-09-20T18%3A35%3A20Z&sks=b&skv=2018-11-09&sig=V4BNIGwMBm8iAtwy0qmPdaKVM3MwS33jrm4nDI0aLbg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4OTkyNjkyOSwibmJmIjoxNzg5OTI2NjI5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.I-zW5u1T9KwxL3T7wYeX0vjLdT3PKE2npFAdCYaaElE&response-content-disposition=attachment%3B%20filename%3Dapp-release.apk&response-content-type=application%2Fvnd.android.package-archive, connect_timeout=15000 ms]
+09-20-2026 11:21:06PM [I] 
+09-20-2026 11:21:06PM [I] 
+09-20-2026 11:21:06PM [E] Failed on DownloadModStep
+09-20-2026 11:21:06PM [E] java.lang.Error: Failed to download xposed.apk from all mirrors.
+09-20-2026 11:21:06PM [E] 	at app.revenge.manager.installer.step.download.base.DownloadStep.run$suspendImpl(SourceFile:621)
+09-20-2026 11:21:06PM [E] 	at app.revenge.manager.installer.step.download.base.DownloadStep$run$1.invokeSuspend(SourceFile:12)
+09-20-2026 11:21:06PM [E] 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(SourceFile:8)
+09-20-2026 11:21:06PM [E] 	at kotlinx.coroutines.DispatchedTask.run(SourceFile:104)
+09-20-2026 11:21:06PM [E] 	at androidx.work.Worker$2.run(SourceFile:11)
+09-20-2026 11:21:06PM [E] 	at kotlinx.coroutines.scheduling.TaskImpl.run(SourceFile:2)
+09-20-2026 11:21:06PM [E] 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(SourceFile:95)
